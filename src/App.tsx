@@ -6,11 +6,12 @@ import useWindowSize from "react-use/lib/useWindowSize";
 import Confetti from "react-confetti";
 import YoutubeEmbed from "./components/YoutubeEmbed";
 import money from "./img/money.png";
+import moment from "moment";
 
 function App() {
   const { width, height } = useWindowSize();
 
-  const dateObj = Date.now() + 5000;
+  const dateObj = moment("2023-04-13", "YYYY-MM-DD").toDate();
 
   // Random component
   const Completionist = () => (

@@ -4,6 +4,7 @@
   "description": "React-TypeScript-Electron sample with Create React App and Electron Builder",
   "version": "0.1.0",
   "homepage": ".",
+  "main": "build/electron/main.js",
   "build": {
     "extends": null,
     "files": [
@@ -29,6 +30,7 @@
     "electron-devtools-installer": "^3.2.0",
     "electron-is-dev": "^2.0.0",
     "electron-reload": "^2.0.0-alpha.1",
+    "moment": "^2.29.1",
     "react": "^17.0.2",
     "react-confetti": "^6.0.1",
     "react-countdown": "^2.3.2",
