@@ -1,7 +1,7 @@
 {
   "name": "countdown-app",
-  "author": "Your Name",
-  "description": "React-TypeScript-Electron sample with Create React App and Electron Builder",
+  "author": "Olly Pethick",
+  "description": "Countdown App",
   "version": "0.1.0",
   "homepage": ".",
   "main": "build/electron/main.js",

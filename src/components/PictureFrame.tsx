@@ -2,8 +2,12 @@ import React from "react";
 import styled from "@emotion/styled";
 
 const StyledDiv = styled.div`
-  height: 400px;
-  margin-bottom: 50px;
+  position: absolute;
+  top: 20vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 30%;
+
   img {
     border: solid 2px;
     border-bottom-color: #ffe;
@@ -22,19 +26,17 @@ const StyledDiv = styled.div`
     border-radius: 2px;
     border-right-color: #eee;
     border-top-color: #ddd;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25) inset,
-      0 5px 10px 5px rgba(0, 0, 0, 0.25);
     box-sizing: border-box;
     display: inline-block;
-    margin: 2vh 2vw;
-    height: 400px;
-    padding: 2vmin;
+    margin: 1vh 2vw;
+    height: 100%;
+    padding: 1vmin;
     position: relative;
     text-align: center;
     &:before {
       border-radius: 2px;
       bottom: -2vmin;
-      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25) inset;
+
       content: "";
       left: -2vmin;
       position: absolute;
@@ -44,7 +46,7 @@ const StyledDiv = styled.div`
     &:after {
       border-radius: 2px;
       bottom: -2.5vmin;
-      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+
       content: "";
       left: -2.5vmin;
       position: absolute;

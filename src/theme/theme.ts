@@ -4,12 +4,12 @@ const typography = {
   h1: {
     fontSize: "2rem",
     fontWeight: 600,
-    margin: "1em 0",
+    margin: "0.3em 0",
   },
   h2: {
     fontSize: "1.5rem",
     fontWeight: 500,
-    margin: "1em 0",
+    margin: "0.3em 0",
   },
   subtitle1: {
     fontSize: "0.9rem",

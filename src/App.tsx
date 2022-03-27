@@ -12,25 +12,37 @@ import LivingRoomBackground from "./img/living_room.svg";
 
 import styled from "@emotion/styled";
 
+import { useTheme } from "@mui/material";
+
 import moment from "moment";
 import PictureFrame from "./components/PictureFrame";
 
-const StyledImg = styled.img`
+const StyledBackground = styled.div`
   position: fixed;
-  top: 5px;
-  z-index: 0;
+  background-image: url(${LivingRoomBackground});
+  z-index: -1;
+  height: 100vh;
+  max-width: 900px;
   width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-origin: content-box;
+  padding: theme.spacing(1);
 `;
 
 function App() {
   const { width, height } = useWindowSize();
 
-  const dateObj = moment("2023-04-13", "YYYY-MM-DD").toDate();
+  const theme = useTheme();
+
+  //const dateObj = moment("2023-04-13", "YYYY-MM-DD").toDate();
+
+  const dateObj = Date.now() + 5000;
 
   // Random component
   const Completionist = () => (
     <Box>
-      <YoutubeEmbed embedId="HMuYfScGpbE" />
+      <YoutubeEmbed embedId="PIAXG_QcQNU" />
       <img
         style={{ display: "none" }}
         id="money"
@@ -63,7 +75,17 @@ function App() {
     } else {
       // Render a countdown
       return (
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
+        >
+          <Typography suppressHydrationWarning variant="h2">
+            Time until state pension! 💸
+          </Typography>
           <Typography
             sx={{ textAlign: "center", padding: "0 1rem" }}
             suppressHydrationWarning
@@ -91,18 +113,22 @@ function App() {
       >
         <Box
           sx={{
+            zIndex: "2",
+            borderRadius: "10px",
+            padding: theme.spacing(2),
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            backgroundColor: "rgb(255 255 255 / 70%)",
+            margin: theme.spacing(1),
           }}
         >
-          <PictureFrame src={family} />
-          <Typography suppressHydrationWarning variant="subtitle1">
-            Time until state pension! 💸
-          </Typography>
           <Countdown renderer={renderer} date={dateObj} />
         </Box>
-        <StyledImg src={LivingRoomBackground} />
+
+        <StyledBackground>
+          <PictureFrame src={family} />
+        </StyledBackground>
       </Box>
     </>
   );
