@@ -35,10 +35,10 @@ function App() {
 
   const theme = useTheme();
 
-  const dateObj = moment("2023-04-13", "YYYY-MM-DD").toDate();
+  //const dateObj = moment("2023-03-13", "YYYY-MM-DD").toDate();
 
   // Test date
-  //const dateObj = Date.now() + 5000;
+  const dateObj = Date.now() + 5000;
 
   // Random component
   const Completionist = () => (
@@ -63,7 +63,7 @@ function App() {
         height={height}
       />
       <Typography suppressHydrationWarning variant="h1">
-        Here comes the money 💸!
+        Money makes the world go round 💸🌎!
       </Typography>
     </Box>
   );
