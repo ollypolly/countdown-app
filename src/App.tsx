@@ -85,7 +85,7 @@ function App() {
           }}
         >
           <Typography suppressHydrationWarning variant="h2">
-            Time until state pension! 💸
+            Time until pension! 💸
           </Typography>
           <Typography
             sx={{ textAlign: "center", padding: "0 1rem" }}
@@ -116,11 +116,11 @@ function App() {
           sx={{
             zIndex: "2",
             borderRadius: "10px",
-            padding: theme.spacing(2),
+            padding: theme.spacing(1),
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            backgroundColor: "rgb(255 255 255 / 70%)",
+            backgroundColor: "rgb(255 255 255 / 60%)",
             margin: theme.spacing(1),
           }}
         >
