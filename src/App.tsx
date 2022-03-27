@@ -35,9 +35,10 @@ function App() {
 
   const theme = useTheme();
 
-  //const dateObj = moment("2023-04-13", "YYYY-MM-DD").toDate();
+  const dateObj = moment("2023-04-13", "YYYY-MM-DD").toDate();
 
-  const dateObj = Date.now() + 5000;
+  // Test date
+  //const dateObj = Date.now() + 5000;
 
   // Random component
   const Completionist = () => (
