@@ -1,15 +1,31 @@
 {
   "name": "countdown-app",
+  "author": "Your Name",
+  "description": "React-TypeScript-Electron sample with Create React App and Electron Builder",
   "version": "0.1.0",
+  "homepage": ".",
+  "build": {
+    "extends": null,
+    "files": [
+      "build/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^13.2.1",
+    "@types/electron-devtools-installer": "^2.2.1",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.13",
     "@types/react": "^17.0.20",
     "@types/react-dom": "^17.0.9",
+    "electron-devtools-installer": "^3.2.0",
+    "electron-is-dev": "^2.0.0",
+    "electron-reload": "^2.0.0-alpha.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
@@ -20,7 +36,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "electron-builder install-app-deps",
+    "electron:dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && tsc -p electron -w\" \"wait-on http://localhost:3000 && tsc -p electron && electron .\"",
+    "electron:build": "yarn build && tsc -p electron && electron-builder"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +58,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "cross-env": "^7.0.3",
+    "electron": "^17.2.0",
+    "electron-builder": "^22.14.13",
+    "wait-on": "^6.0.1"
   }
 }
