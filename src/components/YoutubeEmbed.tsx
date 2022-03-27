@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 
 const StyledDiv = styled.div`
   .video-responsive {
+    display: none;
     overflow: hidden;
     padding-bottom: 56.25%;
     position: relative;

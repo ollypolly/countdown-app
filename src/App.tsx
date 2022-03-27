@@ -5,6 +5,7 @@ import Countdown from "react-countdown";
 import useWindowSize from "react-use/lib/useWindowSize";
 import Confetti from "react-confetti";
 import YoutubeEmbed from "./components/YoutubeEmbed";
+import money from "./img/money.png";
 
 function App() {
   const { width, height } = useWindowSize();
@@ -15,8 +16,24 @@ function App() {
   const Completionist = () => (
     <Box>
       <YoutubeEmbed embedId="HMuYfScGpbE" />
+      <img
+        style={{ display: "none" }}
+        id="money"
+        width="220"
+        height="277"
+        src={money}
+        alt="Money"
+      ></img>
 
-      <Confetti width={width} height={height} />
+      <Confetti
+        drawShape={(ctx) => {
+          const moneyImage = document.getElementById("money");
+          //@ts-ignore
+          ctx.drawImage(moneyImage, -20, -10, 50, 20);
+        }}
+        width={width}
+        height={height}
+      />
       <Typography suppressHydrationWarning variant="h1">
         Here comes the money 💸!
       </Typography>
