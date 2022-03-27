@@ -1,34 +1,59 @@
 import React from "react";
-
-import "./App.css";
 import { Box, Typography } from "@mui/material";
 import Countdown from "react-countdown";
+//@ts-ignore
+import useWindowSize from "react-use/lib/useWindowSize";
+import Confetti from "react-confetti";
+import YoutubeEmbed from "./components/YoutubeEmbed";
 
 function App() {
+  const { width, height } = useWindowSize();
+
+  const dateObj = Date.now() + 5000;
+
+  // Random component
+  const Completionist = () => (
+    <Box>
+      <YoutubeEmbed embedId="HMuYfScGpbE" />
+
+      <Confetti width={width} height={height} />
+      <Typography suppressHydrationWarning variant="h1">
+        Here comes the money 💸!
+      </Typography>
+    </Box>
+  );
+
+  // Renderer callback with condition
+  const renderer = ({ days, hours, minutes, seconds, completed }: any) => {
+    if (completed) {
+      // Render a completed state
+      return <Completionist />;
+    } else {
+      // Render a countdown
+      return (
+        <Typography suppressHydrationWarning variant="h1">{`${days} ${
+          days === 1 ? "day" : "days"
+        }, ${hours} ${hours === 1 ? "hour" : "hours"}, ${minutes} ${
+          minutes === 1 ? "minute" : "minutes"
+        }, ${seconds} ${seconds === 1 ? "second" : "seconds"}`}</Typography>
+      );
+    }
+  };
+
   return (
-    <div className="App">
-      <Box>
-        <Countdown
-          renderer={(formatted) => (
-            <Typography
-              suppressHydrationWarning
-              sx={{
-                fontSize: "1.5em",
-                fontFamily: "'Libre Baskerville', serif",
-                margin: "1.5rem 0",
-              }}
-            >{`${formatted.days} ${formatted.days === 1 ? "day" : "days"}, ${
-              formatted.hours
-            } ${formatted.hours === 1 ? "hour" : "hours"}, ${
-              formatted.minutes
-            } ${formatted.minutes === 1 ? "minute" : "minutes"}, ${
-              formatted.seconds
-            } ${formatted.seconds === 1 ? "second" : "seconds"}`}</Typography>
-          )}
-          date={Date.now() + 10000}
-        />
+    <>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+          height,
+        }}
+      >
+        <Countdown renderer={renderer} date={dateObj} />
       </Box>
-    </div>
+    </>
   );
 }
 
